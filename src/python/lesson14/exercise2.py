@@ -1,3 +1,6 @@
+#Name: TieRopes
+#Link: https://codility.com/demo/take-sample-test/tie_ropes/
+
 def solution(K, A):
     N = len(A)
     result = 0
