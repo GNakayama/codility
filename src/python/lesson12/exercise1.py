@@ -10,10 +10,9 @@ def solution(K, M, A):
         return lowerBound
  
     while lowerBound <= upperBound:
-        middle = (lowerBound + upperBound) / 2       
-        blocks = count_blocks(A, middle)
+        middle = (lowerBound + upperBound) / 2
         
-        if blocks <= K:
+        if check(A, middle, K):
             upperBound = middle - 1
             result = middle
         else:
@@ -21,8 +20,8 @@ def solution(K, M, A):
  
     return result
 
-def count_blocks(A, max_element):
-    result = 1   
+def check(A, max_element, K):
+    blocks = 1   
     N =  len(A)
     total = 0
     
@@ -30,7 +29,7 @@ def count_blocks(A, max_element):
         total += A[k]
         
         if total > max_element:
-            result += 1            
+            blocks += 1            
             total = A[k]
             
-    return result
+    return blocks <= K
