@@ -9,7 +9,7 @@ def solution(A):
     
     for P in range(1, N):
 	#For each loop calculates the sum A[0] + ... + A[P - 1]
-	left_sum += A[P - 1]
+        left_sum += A[P - 1]
 	#Calculates the difference |A[0] + ... + A[P - 1] - (A[P] + ... + A[N - 1])|
         diff = abs(2*left_sum - total)
         
