@@ -15,7 +15,6 @@ def solution(A):
         diff = abs(2 * left_sum - total)
 
         # If found a new lower diff result equals this diff
-        if diff < result:
-            result = diff
+        result = min(result, diff)
 
     return result
