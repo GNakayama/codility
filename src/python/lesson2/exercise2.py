@@ -11,7 +11,7 @@ def solution(A):
         # If A has an element greater than N, A can't be a permutation from 1 to N
         if A[k] > N:
             return 0;
-	# If it's the first time that A[k] appears count that, otherwise A can't be a permutation from 1 to N
+        # If it's the first time that A[k] appears count that, otherwise A can't be a permutation from 1 to N
         if count[A[k]] == 0:
             count[A[k]] = 1
         else:
