@@ -4,7 +4,7 @@
 
 def solution(X, A):
     N = len(A)
-    # Counts the appearance of leafes at every position from the 1 to X
+    # Counts the appearance of leaves at every position from the 1 to X
     count = [0] * (X + 1)
     total = 0
         
