@@ -11,7 +11,7 @@ def solution(A):
 	if N >= A[k] > 0:
             count[A[k]] += 1
     
-    # Searches for the lesser integer with that not belongs to A 
+    # Searches for the lesser integer that not belongs to A 
     for k in xrange(1, N + 1):
         if count[k] == 0:
             return k
