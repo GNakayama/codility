@@ -1,5 +1,5 @@
 
-# Name: NumbertSolitarie
+# Name: NumbertSolitaire
 # Link: https://codility.com/demo/take-sample-test/number_solitaire/
 
 
@@ -30,7 +30,7 @@ def solution(A):
                 # going trough house k may decrease the result, so we ignore it if that's it the case
                 result[dice] = max(result[dice + 1], result[0] + A[k + dice])
             else:
-		# We made all the necessary calculations
+		# We've made all the possible calculations
                 break
          
         # It's the first time we reached this house, so no need to do max() here          
