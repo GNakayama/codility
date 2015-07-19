@@ -1,24 +1,20 @@
+# Name: Distinct
+# Link: https://codility.com/demo/take-sample-test/distinct/
+
+
 def solution(A):
-    A.sort()
     N = len(A)
     result = 1
-    i = 1
-    
+
+    A.sort()
+     
+    # No elements than result is 0
     if N == 0:
         return 0
-    elif N == 1:
-        return 1
-    
-    
-    while i < (N - 1):
-        if A[i - 1] != A[i]:
+
+    # Itetates through A, and for each new value adds one to the result
+    for k in xrange(1, N):
+        if A[k - 1] != A[k]:
             result += 1
-            i += 1
-        else:
-            while i < N and A[i - 1] == A[i]:
-                i += 1
-        
-    if A[N - 1] != A[N - 2]:
-        result += 1
         
     return result
