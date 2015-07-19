@@ -6,9 +6,9 @@ def solution(A):
     N = len(A)
     A.sort()
     
-    # If A length is 3 this the only combination to check
-    if N == 3 and test_triangle(A[0], A[1], A[2]):
-        return 1
+    # If A length is lesser than 3 A can't be triangular
+    if N < 3:
+        return 0
 
     # Since Array is sorted, only have to look for each element once
     for k in xrange(N - 1):
