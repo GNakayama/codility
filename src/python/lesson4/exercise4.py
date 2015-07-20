@@ -1,3 +1,7 @@
+# Name: NumberOfDiscIntersections
+# Link: https://codility.com/demo/take-sample-test/number_of_disc_intersections/
+
+
 def solution(A):
     N = len(A)
     result = 0  
