@@ -1,40 +1,55 @@
+# Name: Fish
+# Link: https://codility.com/demo/take-sample-test/fish/
+
+
 def solution(A, B):
     N = len(A)
+    # The direction of the last fish
     direction = 0
-    fish = 0
-    result = 0
-    fish_stack = stack(N)
-    
+    # The index of the last fish going downstream
+    last_downstream = 0
+    #Holds the number of alive fishes going upstream
+    upstream = 0
+    #Holds the alive fishes going from downstream
+    downstream = stack(N)
+
     for k in xrange(N):
+        # If the last fish is going downstream, this means that there is no fish before it going upstream
         if B[k] == 0 and direction == 0:
-            result += 1
+            upstream += 1
+        # The fish k is going on the oposite direction of the last fish going downstream
         elif B[k] == 0 and direction == 1:
-            if A[fish] > A[k]:
+            # If the fish going downstream is bigger, then it eats the smaller fish and keep going
+            if A[last_downstream] > A[k]:
                 continue
+            # Otherwise the other fish eats the one going downstream
             else:
-                result += 1
+                # We add the new fish to the one going upstream
+                upstream += 1
+                # Update the direction of the last fish
                 direction = 0
                 
-                while fish_stack.size > 0:
-                    head = fish_stack.pop()
+                # If there is more fishes going downstream we compare the sizes
+                while downstream.size > 0:
+                    head = downstream.pop()
                     
+                    # If there is a bigger fish going downstream, we subtract one from the result and change the direction
                     if A[k] < head:
-                        fish_stack.push(head)
+                        downstream.push(head)
                         direction = 1
-                        result -= 1
+                        upstream -= 1
                         break
-                    
-        elif B[k] == 1 and direction == 0:
+        # If fish is going downstream update the direction and push it to the stack
+        elif B[k] == 1:
             direction = 1
-            fish = k
-            fish_stack.push(A[k])
-        elif B[k] == 1 and direction == 1:
-            fish = k
-            fish_stack.push(A[k])
-            
-    return result + fish_stack.size
-    
+            last_downstream = k
+            downstream.push(A[k])
 
+    # The result is the fishes going upstream plus the ones goind downstream
+    return upstream + downstream.size
+
+
+# Stack implementation
 class stack(object):
     def __init__(self, N):
         self.size = 0
@@ -47,3 +62,4 @@ class stack(object):
     def pop(self):
         self.size -= 1
         return self._stack_[self.size]
+
