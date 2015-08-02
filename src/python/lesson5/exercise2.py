@@ -14,7 +14,7 @@ def solution(A, B):
     downstream = stack(N)
 
     for k in xrange(N):
-        # If the last fish is going downstream, this means that there is no fish before it going upstream
+        # If the last fish is going upstream, this means that there is no fish before it going downstream
         if B[k] == 0 and direction == 0:
             upstream += 1
         # The fish k is going on the oposite direction of the last fish going downstream
@@ -24,7 +24,7 @@ def solution(A, B):
                 continue
             # Otherwise the other fish eats the one going downstream
             else:
-                # We add the new fish to the one going upstream
+                # We add the new fish to the ones going upstream
                 upstream += 1
                 # Update the direction of the last fish
                 direction = 0
