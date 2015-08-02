@@ -42,6 +42,8 @@ def solution(H):
 
     return result
 
+
+# Stack implementation
 class stack(object):
     def __init__(self, N):
         self.size = 0
